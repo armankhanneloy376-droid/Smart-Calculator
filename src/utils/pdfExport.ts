@@ -318,7 +318,7 @@ export function triggerPrintDocument(elementId: string): boolean {
       <!DOCTYPE html>
       <html>
         <head>
-          <base href="${window.location.origin}/">
+          <base href="${window.location.origin}${import.meta.env.BASE_URL}">
           <title>Print Invoice</title>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">

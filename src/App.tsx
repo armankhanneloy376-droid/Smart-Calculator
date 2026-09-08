@@ -32,7 +32,7 @@ import { ConfirmDialog } from './components/ConfirmDialog';
 import { exportElementToPdf } from './utils/pdfExport';
 import { CheckCircle, Info } from 'lucide-react';
 
-const STORAGE_KEY_CURRENT = 'smart_cost_calc_current';
+const STORAGE_KEY_CURRENT = 'smart_cost_calc_current_v2';
 const STORAGE_KEY_HISTORY = 'smart_cost_calc_history';
 const STORAGE_KEY_SETTINGS = 'smart_cost_calc_settings';
 const STORAGE_KEY_LANG = 'smart_cost_calc_lang';
@@ -58,46 +58,17 @@ function createInitialCustomerInfo(): CustomerInfo {
 }
 
 function createInitialCostItems(): CostItem[] {
-  return [
-    {
-      id: generateItemId(),
-      description: 'Product Cost',
-      category: 'Product',
-      quantity: 10,
-      unitCost: 500,
-    },
-    {
-      id: generateItemId(),
-      description: 'Delivery Charge',
-      category: 'Delivery',
-      quantity: 1,
-      unitCost: 120,
-    },
-    {
-      id: generateItemId(),
-      description: 'Packaging Cost',
-      category: 'Packaging',
-      quantity: 10,
-      unitCost: 20,
-    },
-    {
-      id: generateItemId(),
-      description: 'Service Charge',
-      category: 'Service',
-      quantity: 1,
-      unitCost: 100,
-    },
-  ];
+  return [];
 }
 
 function createInitialPaymentDetails(): PaymentDetails {
   return {
-    sellingPrice: 8000,
-    discount: 200,
+    sellingPrice: 0,
+    discount: 0,
     tax: 0,
     additionalCost: 0,
     additionalCharge: 0,
-    manualPaidAmount: 5000,
+    manualPaidAmount: 0,
   };
 }
 
@@ -173,16 +144,7 @@ export default function App() {
     } catch {
       // fallback
     }
-    return [
-      {
-        id: 'init_pay_1',
-        date: getTodayDateString(),
-        method: 'bKash',
-        amount: 5000,
-        reference: 'ADV-001',
-        notes: 'Advance Received',
-      },
-    ];
+    return [];
   });
 
   // 4. Saved History state

@@ -134,7 +134,7 @@ export const Logo: React.FC<LogoProps> = ({
     <div className={`inline-flex items-center gap-2.5 ${className}`}>
       <div className="shrink-0 bg-white rounded-md p-0.5 border border-slate-200/70 shadow-2xs flex items-center justify-center">
         <img
-          src={logoAsset || '/logo.png'}
+          src={logoAsset || `${import.meta.env.BASE_URL}logo.png`}
           alt={businessName || 'Smart Calculator'}
           crossOrigin="anonymous"
           loading="eager"
