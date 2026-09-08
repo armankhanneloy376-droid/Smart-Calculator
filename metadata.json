@@ -1,0 +1,6 @@
+{
+  "name": "Smart Cost & Payment Calculator",
+  "description": "Calculate costs, payments, profit and balance with separate itemized expenses, payment records, and invoice printing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
+  }
+}
+
+/* Print CSS specific for A4 commercial invoices */
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm 12mm;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt;
+    line-height: 1.35;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide everything marked .no-print */
+  .no-print,
+  nav,
+  header,
+  footer,
+  button,
+  .modal-overlay {
+    display: none !important;
+  }
+
+  /* Show print container prominently */
+  #print-invoice-area {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* Avoid page breaks inside table rows or summary sections */
+  tr, .print-avoid-break {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  th, td {
+    border-color: #cbd5e1 !important;
+  }
+}
+
+/* On screen, hide the standalone print invoice container unless in preview mode */
+@media screen {
+  #print-invoice-area {
+    display: none;
+  }
+}
+
+/* Offscreen container for high-resolution PDF generation without screen disruption */
+#offscreen-pdf-area {
+  position: fixed;
+  left: -9999px;
+  top: 0;
+  width: 820px;
+  background-color: #ffffff;
+  z-index: -999;
+  opacity: 1;
+  pointer-events: none;
+}
+
